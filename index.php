@@ -2,22 +2,20 @@
 if (isset($_FILES['new_image'])) {
   $newImage = uniqid().'.jpg';
   move_uploaded_file($_FILES['new_image']['tmp_name'], 'img/'.$newImage);
-  $message = 'Файл успешно загружен';
+  $message = 'Файл успішно завантажено!';
 }
 
 if ($_GET['delete'] && file_exists($_GET['delete'])) {
   unlink($_GET['delete']);
-  $message = 'Файл успешно удалён';
+  $message = 'Файл успішно видалено!';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="uk">
-
 <?php include 'includes/head.php' ?>
-
 <body>
   <?php include 'includes/header.php' ?>
-
   <div class="container">
     <?php include 'includes/message.php' ?>
     <div class="row">
@@ -57,12 +55,8 @@ if ($_GET['delete'] && file_exists($_GET['delete'])) {
         </div>
       </form>
       <?php endif ?>
-
     </div>
   </div>
-
-
   <?php include 'includes/footer.php'; ?>
 </body>
-
 </html>
